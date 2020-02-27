@@ -1,0 +1,53 @@
+{
+  "name": "solfuzz",
+  "version": "0.1.0",
+  "description": "Assertion checker for Solidity smart contracts based on MythX",
+  "main": "solfuzz.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/b-mueller/solfuzz.git"
+  },
+  "keywords": [
+    "ethereum",
+    "solfuzz",
+    "mythril",
+    "mythX"
+  ],
+  "homepage": "https://github.com/b-mueller/solfuzz",
+  "bugs": {
+    "url": "https://github.com/b-mueller/solfuzz/issues"
+  },
+  "author": "Bernhard Mueller",
+  "license": "MIT",
+  "dependencies": {
+    "@truffle/compile-solidity": "^4.2.22",
+    "@truffle/contract": "^4.1.10",
+    "@truffle/resolver": "^5.1.3",
+    "axios": "^0.19.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^5.16.0",
+    "minimist": "^1.2.0",
+    "mythxjs": "^1.3.11",
+    "openzeppelin-solidity": "^2.5.0",
+    "ora": "^3.4.0",
+    "package.json": "^2.0.1",
+    "remix-lib": "^0.4.23",
+    "solidity-parser-antlr": "^0.4.11"
+  },
+  "bin": {
+    "solfuzz": "./solfuzz.js"
+  },
+  "scripts": {
+    "lint": "eslint ./solfuzz.js ./lib ./test",
+    "lint:fix": "eslint --fix ./solfuzz.js ./lib ./test",
+    "test": "nyc mocha"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "nyc": "^14.1.1"
+  }
+}

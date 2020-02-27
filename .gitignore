@@ -1,0 +1,15 @@
+.DS_Store
+node_modules
+config.js
+
+# IDE
+.idea
+.vscode
+
+# Ignore temp directory
+.temp
+
+# nyc
+.nyc_output
+
+package-lock.json
