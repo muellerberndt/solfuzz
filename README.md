@@ -91,7 +91,7 @@ Call sequence:
 
 Oh no! 1021 x 953 = 973013, better pick a different number :(s
 
-### Example 2: Integer precision
+### Example 2: Integer precision bug
 
 Source: [Sigma Prime](https://blog.sigmaprime.io/solidity-security.html#precision-vuln)
 
@@ -240,7 +240,7 @@ Call sequence:
 Ooops...
 
 
-### Example 4: Pausable token
+### Example 4: Pausable token pwnage
 
 Source: [TrailofBits](https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/echidna/exercises/exercise1)
  
