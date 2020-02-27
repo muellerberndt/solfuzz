@@ -3,6 +3,10 @@
 
 Solfuzz is an assertion checker for smart contracts written in Solidity. It uses [MythX](https://mythx.io) EVM-level fuzzing and symbolic execution to uncover bugs in the code.
 
+<p align="center">
+	<img src="/static/screenshot.png" width="100%"/>
+</p>
+
 ## Installation
 
 ```
