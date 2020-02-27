@@ -67,7 +67,7 @@ contract Primality {
 }
 ```
 
-Obviously the assertion in `verifyPrime()` will hold for all possible inputs?
+Surely the assertion in `verifyPrime()` will hold for all possible inputs?
 
 
 ```
