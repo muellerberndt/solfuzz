@@ -162,46 +162,7 @@ Um what??
 
 Source: [Ethernaut](https://ethernaut.openzeppelin.com/level/0xe83cf387ddfd13a2db5493d014ba5b328589fb5f)
 
-This contract has, and will always have, only one owner. There isn't even a `transferOwnership` function.
-
-```
-pragma solidity ^0.4.26;
-
-// Name Registrar
-contract Registrar {
-    
-    address public owner;
-    
-    struct NameRecord { // map hashes to addresses
-        bytes32 name; // 
-        address mappedAddress;
-    }
-
-    mapping(address => NameRecord) public registeredNameRecord; // records who registered names 
-    mapping(bytes32 => address) public resolve; // resolves hashes to addresses
-    
-    modifier onlyOwner {
-        require(msg.sender == owner);
-        _;
-    }
-    
-    constructor() public {
-        owner = msg.sender;
-    }
-    
-    function register(bytes32 _name, address _mappedAddress) public {
-        // set up the new NameRecord
-        NameRecord newRecord;
-        newRecord.name = _name;
-        newRecord.mappedAddress = _mappedAddress;
-        resolve[_name] = _mappedAddress;
-        registeredNameRecord[msg.sender] = newRecord;
-    }
-}
-
-```
-
-But... can you be really sure? Don't you at least want to double-check with a high-level, catch-all invariant?
+This [smart contract]((https://ethernaut.openzeppelin.com/level/0xe83cf387ddfd13a2db5493d014ba5b328589fb5f) has, and will always have, only one owner. There isn't even a `transferOwnership` function.But... can you be really sure? Don't you at least want to double-check with a high-level, catch-all invariant?
 
 ```
 contract VerifyRegistrar is Registrar {
@@ -219,8 +180,7 @@ contract VerifyRegistrar is Registrar {
 ```
 
 ```
-
-$ $SOLFUZZ check registrar.sol 
+$ solfuzz check registrar.sol 
 [    ] Loading solc v0.4.25(node:55958) V8: :3 Invalid asm.js: Invalid member of stdlib
 ✔ Loaded solc v0.4.25 from local cache
 ✔ Compiled with solc v0.4.25 successfully
@@ -240,7 +200,6 @@ Call sequence:
 ```
 
 Ooops...
-
 
 ### Example 4: Pausable token
 
