@@ -185,7 +185,6 @@ Let's check just to be 15,000% sure.
 
 ```
 $ solfuzz check registrar.sol 
-[    ] Loading solc v0.4.25(node:55958) V8: :3 Invalid asm.js: Invalid member of stdlib
 ✔ Loaded solc v0.4.25 from local cache
 ✔ Compiled with solc v0.4.25 successfully
 ✔ Analysis job submitted: https://dashboard.mythx.io/#/console/analyses/e98a345e-7418-4209-ab99-bffdc2535d9b
