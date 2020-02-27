@@ -1,11 +1,7 @@
 # Solfuzz
 [![Discord](https://img.shields.io/discord/481002907366588416.svg)](https://discord.gg/E3YrVtG)
 
-<p align="center">
-	<img src="/static/sabre_v2.jpg" width="100%"/>
-</p>
-
-Solfuzz is a security analysis tool for smart contracts written in Solidity. It uses the optimized [MythX](https://mythx.io) fuzzing and symbolic execution engine to find assertion violations caused by bugs in the code.
+Solfuzz is an assertion checker for smart contracts written in Solidity. It uses [MythX](https://mythx.io) EVM-level fuzzing and symbolic execution to uncover bugs in the code.
 
 ## Usage
 
@@ -14,8 +10,6 @@ Solfuzz is a security analysis tool for smart contracts written in Solidity. It 
 ```
 $ npm install -g solfuzz
 ```
-
-### Setting up an Account
 
 Get a free API key from [MythX](https://dashboard.mythx.io) Set the `MYTHX_API_KEY` enviroment variable by adding the following to your `.bashrc` or `.bash_profile`):
 
