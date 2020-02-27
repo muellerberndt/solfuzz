@@ -124,7 +124,7 @@ contract FunWithNumbers {
 Better safe than sorry! Let's check some [invariants]() just to be 150% sure. 
 
 ```
-$ $solfuzz check funwithnumbers.sol 
+$ solfuzz check funwithnumbers.sol 
 --------------------
 ASSERTION VIOLATION!
 /Users/bernhardmueller/Desktop/funwithnumbers.sol: from 47:17 to 47:131
@@ -244,7 +244,7 @@ Ooops...
 
 Source: [TrailofBits](https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/echidna/exercises/exercise1)
  
-Smart contracts get hacked all the time so it's always great to have a pause button, even if it's just a simple token. This is even an off-switch if we pause the token and throw away the admin account? Or is it?
+Smart contracts get hacked all the time so it's always great to have a pause button, even if it's just a [simple token]((https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/echidna/exercises/exercise1). This is even an off-switch if we pause the token and throw away the admin account? Or is it?
 
 Why not create an instance of the contract that's infinitely paused and check if there's any way to unpause it.
 
@@ -271,7 +271,7 @@ contract VerifyToken is Token {
 ```
 
 ```
-$ $SOLFUZZ check token.sol 
+$ solfuzz check token.sol 
 ✔ Loaded solc v0.5.16 from local cache
 ✔ Compiled with solc v0.5.16 successfully
 ✔ Analysis job submitted: https://dashboard.mythx.io/#/console/analyses/8d4b0eb0-69d3-4d82-b6c6-bc90332a292c
