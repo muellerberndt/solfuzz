@@ -3,9 +3,7 @@
 
 Solfuzz is an assertion checker for smart contracts written in Solidity. It uses [MythX](https://mythx.io) EVM-level fuzzing and symbolic execution to uncover bugs in the code.
 
-## Usage
-
-### Installation
+## Installation
 
 ```
 $ npm install -g solfuzz
@@ -17,7 +15,7 @@ Get a free API key from [MythX](https://dashboard.mythx.io) Set the `MYTHX_API_K
 export MYTHX_API_KEY=eyJhbGciOiJI(...)
 ```
 
-### Checking Solidity code
+## Usage
 
 Run `solfuzz check <solidity-file> [contract-name]` to start a job. The default mode is "quick" analysis which returns results after approximately 2 minutes. You'll also get a dashboard link where you can monitor the progress and view the report.
 
@@ -36,7 +34,7 @@ if (false) {
 }
 ```
 
-#### Example 1: Primality test
+### Example 1: Primality test
 
 You're pretty sure that 973013 is a prime number. It ends with a "3" so whyh wouldn't it be??
 
@@ -93,7 +91,7 @@ Call sequence:
 
 Oh no! 1021 x 953 = 973013, better pick a different number :(s
 
-#### Example 2: Integer precision
+### Example 2: Integer precision
 
 Source: [Sigma Prime](https://blog.sigmaprime.io/solidity-security.html#precision-vuln)
 
@@ -158,7 +156,7 @@ Call sequence:
 
 Um what??
 
-#### Example 3: Arbitrary storage write
+### Example 3: Arbitrary storage write
 
 Source: [Ethernaut](https://ethernaut.openzeppelin.com/level/0xe83cf387ddfd13a2db5493d014ba5b328589fb5f)
 
@@ -242,7 +240,7 @@ Call sequence:
 Ooops...
 
 
-## Example 4: Pausable token
+### Example 4: Pausable token
 
 Source: [TrailofBits](https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/echidna/exercises/exercise1)
  
@@ -302,7 +300,7 @@ Call sequence:
 Oh no 😵
 
 
-#### Example 5: MakerDAO bug
+### Example 5: MakerDAO bug
 
 Source: [OpenZeppelin](https://forum.openzeppelin.com/t/using-automatic-analysis-tools-with-makerdao-contracts/1021)
 
@@ -310,8 +308,9 @@ This voting logic is so simple that it doesn't even warrant a check, but better 
 
 TODO
 
+#### Additional commands and options
 
-#### Analysis depth
+### Analysis depth
 
 ```
 --mode <quick/standard/deep>
@@ -325,7 +324,7 @@ MythX distributes incoming analysis to a number of workers that perform various 
 
 The tools cover as much ground as possible in the available time. A coverage metric will be added soon.
 
-#### Report format
+### Report format
 
 ```
 --format <text/eslint>
