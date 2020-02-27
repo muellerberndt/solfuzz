@@ -9,7 +9,7 @@ Solfuzz is an assertion checker for smart contracts written in Solidity. It uses
 $ npm install -g solfuzz
 ```
 
-Get a free API key from [MythX](https://dashboard.mythx.io) Set the `MYTHX_API_KEY` enviroment variable by adding the following to your `.bashrc` or `.bash_profile`):
+Get a [free API key](https://dashboard.mythx.io) and set the `MYTHX_API_KEY` enviroment variable by adding the following to your `.bashrc` or `.bash_profile`):
 
 ```
 export MYTHX_API_KEY=eyJhbGciOiJI(...)
