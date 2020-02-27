@@ -89,7 +89,7 @@ Call sequence:
 
 ```
 
-Oh no! 1021 x 953 = 973013, better pick a different number :(s
+Oh no! 1021 x 953 = 973013, better pick a different number 🙄
 
 ### Example 2: Integer precision bug
 
@@ -121,7 +121,7 @@ contract FunWithNumbers {
 
 ```
 
-Better safe than sorry! Let's check some [invariants]() just to be 150% sure. 
+Better safe than sorry! Let's check some [contract invariants](https://gist.github.com/b-mueller/0916c3700c94e94b23dfa9aa650005e8) just to be 150% sure. 
 
 ```
 $ solfuzz check funwithnumbers.sol 
