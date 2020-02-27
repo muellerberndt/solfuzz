@@ -161,9 +161,9 @@ Um what?? Fractional numbers are rounded down 😲
 
 ### Example 3: Arbitrary storage write
 
-Source: [Ethernaut](https://ethernaut.openzeppelin.com/level/0xe83cf387ddfd13a2db5493d014ba5b328589fb5f)
+Source: [Ethernaut](https://ethernaut.openzeppelin.com/level/0xe83cf387ddfd13a2db5493d014ba5b328589fb5f) (I made this [a bit more complex](https://gist.github.com/b-mueller/44a995aaf764051963802a061665b446))
 
-This [smart contract](https://ethernaut.openzeppelin.com/level/0xe83cf387ddfd13a2db5493d014ba5b328589fb5f) has, and will always have, only one owner. There isn't even a `transferOwnership` function. But... can you be really sure? Don't you at least want to double-check with a high-level, catch-all invariant?
+This [smart contract](https://gist.github.com/b-mueller/44a995aaf764051963802a061665b446) has, and will always have, only one owner. There isn't even a `transferOwnership` function. But... can you be really sure? Don't you at least want to double-check with a high-level, catch-all invariant?
 
 ```
 contract VerifyRegistrar is Registrar {
