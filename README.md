@@ -36,7 +36,7 @@ if (false) {
 
 ### Example 1: Primality test
 
-You're pretty sure that 973013 is a prime number. It ends with a "3" so whyh wouldn't it be??
+You're pretty sure that 973013 is a prime number. It ends with a "3" so why wouldn't it be??
 
 
 ```
