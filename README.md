@@ -124,7 +124,7 @@ contract FunWithNumbers {
 }
 ```
 
-Better safe than sorry! Let's check some [contract invariants](https://gist.github.com/b-mueller/0916c3700c94e94b23dfa9aa650005e8) just to be 1500% sure that everything works as expected.
+Better safe than sorry! Let's check some [contract invariants](https://gist.github.com/b-mueller/0916c3700c94e94b23dfa9aa650005e8) just to be 1,700% sure that everything works as expected.
 
 ```
 $ solfuzz check funwithnumbers.sol 
