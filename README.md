@@ -163,7 +163,7 @@ Um what?? Fractional numbers are rounded down 😲
 
 Source: [Ethernaut](https://ethernaut.openzeppelin.com/level/0xe83cf387ddfd13a2db5493d014ba5b328589fb5f)
 
-This [smart contract]((https://ethernaut.openzeppelin.com/level/0xe83cf387ddfd13a2db5493d014ba5b328589fb5f) has, and will always have, only one owner. There isn't even a `transferOwnership` function. But... can you be really sure? Don't you at least want to double-check with a high-level, catch-all invariant?
+This [smart contract](https://ethernaut.openzeppelin.com/level/0xe83cf387ddfd13a2db5493d014ba5b328589fb5f) has, and will always have, only one owner. There isn't even a `transferOwnership` function. But... can you be really sure? Don't you at least want to double-check with a high-level, catch-all invariant?
 
 ```
 contract VerifyRegistrar is Registrar {
