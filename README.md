@@ -17,9 +17,7 @@ export MYTHX_API_KEY=eyJhbGciOiJI(...)
 
 ## Usage
 
-Run `solfuzz check <solidity-file> [contract-name]` to start a job. The default mode is "quick" analysis which returns results after approximately 2 minutes. You'll also get a dashboard link where you can monitor the progress and view the report.
-
-Solfuzz supports two types of assertions:
+Run `solfuzz check <solidity-file> [contract-name]` to start a job. The default analysis type runs for approximately two minutes. Solfuzz supports two types of assertions:
 
 
 ```
