@@ -240,11 +240,12 @@ Call sequence:
 Ooops...
 
 
-### Example 4: Pausable token pwnage
+### Example 4: Pausable token
 
 Source: [TrailofBits](https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/echidna/exercises/exercise1)
  
-Smart contracts get hacked all the time so it's always great to have a pause button, even if it's just a [simple token]((https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/echidna/exercises/exercise1). This is even an off-switch if we pause the token and throw away the admin account? Or is it?
+Smart contracts get hacked all the time so it's always great to have a pause button, even if it's just a [simple token
+](https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/echidna/exercises/exercise1). This is even an off-switch if we pause the token and throw away the admin account? Or is it?
 
 Why not create an instance of the contract that's infinitely paused and check if there's any way to unpause it.
 
