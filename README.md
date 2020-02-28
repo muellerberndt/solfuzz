@@ -320,12 +320,13 @@ Dump the API request and reponse when submitting an analysis.
 
 Some articles and papers explaining the tech behind this tool:
 
-- [Learning Inputs in Greybox Fuzzing](https://arxiv.org/pdf/1807.07875.pdf)
-- [Smashing Smart Contracts (HITB GSEC 2018)](https://conference.hitb.org/hitbsecconf2018ams/materials/D1T2%20-%20Bernhard%20Mueller%20-%20Smashing%20Ethereum%20Smart%20Contracts%20for%20Fun%20and%20ACTUAL%20Profit.pdf)
-- [Advances in Smart Contract Vulnerability Detection (DEFCON 27)](https://github.com/b-mueller/smashing-smart-contracts/blob/master/DEFCON27-EVM-Smart-Contracts-Mueller-Luca.pdf)
-- [The Tech Behind MythX](https://medium.com/consensys-diligence/the-tech-behind-mythx-smart-contract-security-analysis-32c849aedaef)
 - [Harvey Greybox Fuzzing Article Series](https://medium.com/consensys-diligence/finding-vulnerabilities-in-smart-contracts-175c56affe2)
 - [Fuzzing Smart Contracts Using Input Prediction](https://medium.com/consensys-diligence/fuzzing-smart-contracts-using-input-prediction-29b30ba8055c)
 - [Fuzzing Smart Contracts Using Multiple Transactions](https://medium.com/consensys-diligence/fuzzing-smart-contracts-using-multiple-transactions-51471e4b3c69)
+- [Learning Inputs in Greybox Fuzzing](https://arxiv.org/pdf/1807.07875.pdf)
+- [Targeted Greybox Fuzzing using Lookahead Analysis](https://arxiv.org/abs/1905.07147)
+- [Advances in Smart Contract Vulnerability Detection (DEFCON 27)](https://github.com/b-mueller/smashing-smart-contracts/blob/master/DEFCON27-EVM-Smart-Contracts-Mueller-Luca.pdf)
+- [Smashing Smart Contracts (HITB GSEC 2018)](https://conference.hitb.org/hitbsecconf2018ams/materials/D1T2%20-%20Bernhard%20Mueller%20-%20Smashing%20Ethereum%20Smart%20Contracts%20for%20Fun%20and%20ACTUAL%20Profit.pdf)
+- [The Tech Behind MythX](https://medium.com/consensys-diligence/the-tech-behind-mythx-smart-contract-security-analysis-32c849aedaef)
 - [Intro to Symbolic Execution in Mythril](https://medium.com/@joran.honig/introduction-to-mythril-classic-and-symbolic-execution-ef59339f259b)
 - [Practical Mutation Testing in Smart Contracts](https://www.researchgate.net/publication/335937116_Practical_Mutation_Testing_for_Smart_Contracts)
