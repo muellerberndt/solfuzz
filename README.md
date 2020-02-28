@@ -318,7 +318,7 @@ Dump the API request and reponse when submitting an analysis.
 
 # How it works
 
-Some articles and papers explaining the tech behind this tool:
+Some articles and papers explaining the tech behind that runs in [MythX](https://mythx.io):
 
 - [Finding Vulnerabilities in Smart Contracts (Harvey Basics)](https://medium.com/consensys-diligence/finding-vulnerabilities-in-smart-contracts-175c56affe2)
 - [Fuzzing Smart Contracts Using Input Prediction](https://medium.com/consensys-diligence/fuzzing-smart-contracts-using-input-prediction-29b30ba8055c)
