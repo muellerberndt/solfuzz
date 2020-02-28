@@ -328,5 +328,5 @@ Some articles and papers explaining the tech behind this tool:
 - [Intro to Symbolic Execution in Mythril](https://medium.com/@joran.honig/introduction-to-mythril-classic-and-symbolic-execution-ef59339f259b)
 - [Advances in Smart Contract Vulnerability Detection (DEFCON 27)](https://github.com/b-mueller/smashing-smart-contracts/blob/master/DEFCON27-EVM-Smart-Contracts-Mueller-Luca.pdf)
 - [Smashing Smart Contracts (HITB GSEC 2018)](https://conference.hitb.org/hitbsecconf2018ams/materials/D1T2%20-%20Bernhard%20Mueller%20-%20Smashing%20Ethereum%20Smart%20Contracts%20for%20Fun%20and%20ACTUAL%20Profit.pdf)
-- [The Tech Behind MythX](https://medium.com/consensys-diligence/the-tech-behind-mythx-smart-contract-security-analysis-32c849aedaef)
+- [The Tech Behind MythX (high-level)](https://medium.com/consensys-diligence/the-tech-behind-mythx-smart-contract-security-analysis-32c849aedaef)
 - [Practical Mutation Testing in Smart Contracts](https://www.researchgate.net/publication/335937116_Practical_Mutation_Testing_for_Smart_Contracts)
