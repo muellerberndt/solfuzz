@@ -3,6 +3,10 @@
 
 Solfuzz is an assertion checker for smart contracts written in Solidity. It uses [MythX](https://mythx.io) EVM-level fuzzing and symbolic execution to uncover bugs in the code.
 
+<p align="center">
+	<img src="/static/screenshot.png" width="100%"/>
+</p>
+
 ## Installation
 
 ```
@@ -63,6 +67,9 @@ contract Primality {
 }
 ```
 
+Surely the assertion in `verifyPrime()` will hold for all possible inputs?
+
+
 ```
 $ solfuzz check primality.sol
 --------------------
@@ -93,7 +100,7 @@ Oh no! 1021 x 953 = 973013, better pick a different number 🙄
 
 Source: [Sigma Prime](https://blog.sigmaprime.io/solidity-security.html#precision-vuln)
 
-A contract for buying and selling tokens. What could possibly go wrong?
+Here is a simple contract for buying and selling tokens. What could possibly go wrong?
 
 ```
 pragma solidity ^0.5.0;
@@ -115,11 +122,9 @@ contract FunWithNumbers {
         msg.sender.transfer(eth*weiPerEth); 
     }
 }
-
-
 ```
 
-Better safe than sorry! Let's check some [contract invariants](https://gist.github.com/b-mueller/0916c3700c94e94b23dfa9aa650005e8) just to be 150% sure. 
+Better safe than sorry! Let's check some [contract invariants](https://gist.github.com/b-mueller/0916c3700c94e94b23dfa9aa650005e8) just to be 1,700% sure that everything works as expected.
 
 ```
 $ solfuzz check funwithnumbers.sol 
@@ -152,52 +157,13 @@ Call sequence:
     Value: 0
 ```
 
-Um what??
+Um what?? Fractional numbers are rounded down 😲
 
 ### Example 3: Arbitrary storage write
 
-Source: [Ethernaut](https://ethernaut.openzeppelin.com/level/0xe83cf387ddfd13a2db5493d014ba5b328589fb5f)
+Source: [Ethernaut](https://ethernaut.openzeppelin.com/level/0xe83cf387ddfd13a2db5493d014ba5b328589fb5f) (I made this [a bit more complex](https://gist.github.com/b-mueller/44a995aaf764051963802a061665b446))
 
-This contract has, and will always have, only one owner. There isn't even a `transferOwnership` function.
-
-```
-pragma solidity ^0.4.26;
-
-// Name Registrar
-contract Registrar {
-    
-    address public owner;
-    
-    struct NameRecord { // map hashes to addresses
-        bytes32 name; // 
-        address mappedAddress;
-    }
-
-    mapping(address => NameRecord) public registeredNameRecord; // records who registered names 
-    mapping(bytes32 => address) public resolve; // resolves hashes to addresses
-    
-    modifier onlyOwner {
-        require(msg.sender == owner);
-        _;
-    }
-    
-    constructor() public {
-        owner = msg.sender;
-    }
-    
-    function register(bytes32 _name, address _mappedAddress) public {
-        // set up the new NameRecord
-        NameRecord newRecord;
-        newRecord.name = _name;
-        newRecord.mappedAddress = _mappedAddress;
-        resolve[_name] = _mappedAddress;
-        registeredNameRecord[msg.sender] = newRecord;
-    }
-}
-
-```
-
-But... can you be really sure? Don't you at least want to double-check with a high-level, catch-all invariant?
+This [smart contract](https://gist.github.com/b-mueller/44a995aaf764051963802a061665b446) has, and will always have, only one owner. There isn't even a `transferOwnership` function. But... can you be really sure? Don't you at least want to double-check with a high-level, catch-all invariant?
 
 ```
 contract VerifyRegistrar is Registrar {
@@ -214,10 +180,11 @@ contract VerifyRegistrar is Registrar {
 }
 ```
 
-```
+Let's check just to be 15,000% sure.
 
-$ $SOLFUZZ check registrar.sol 
-[    ] Loading solc v0.4.25(node:55958) V8: :3 Invalid asm.js: Invalid member of stdlib
+
+```
+$ solfuzz check registrar.sol 
 ✔ Loaded solc v0.4.25 from local cache
 ✔ Compiled with solc v0.4.25 successfully
 ✔ Analysis job submitted: https://dashboard.mythx.io/#/console/analyses/e98a345e-7418-4209-ab99-bffdc2535d9b
@@ -232,11 +199,9 @@ Call sequence:
     1: register(b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00', 0x0000000000000000000000000000000000000000)
     Sender: 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa [ USER ]
     Value: 0
-
 ```
 
-Ooops...
-
+Ooops... better initialize those structs before using them.
 
 ### Example 4: Pausable token
 
@@ -269,6 +234,9 @@ contract VerifyToken is Token {
 }
 ```
 
+Given that this contract is forever paused, it should never be possible to transfer any tokens right?
+
+
 ```
 $ solfuzz check token.sol 
 ✔ Loaded solc v0.5.16 from local cache
@@ -293,10 +261,9 @@ Call sequence:
     3: transfer(0x0008000002400240000200104000104080001000, 614153205830163099331592192)
     Sender: 0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe [ CREATOR ]
     Value: 0
-
 ```
 
-Oh no 😵
+Oh no 😵 Looks like somebody slipped up there when naming the constructor.
 
 
 ### Example 5: MakerDAO bug
@@ -351,14 +318,15 @@ Dump the API request and reponse when submitting an analysis.
 
 # How it works
 
-Some articles and papers explaining the tech behind this tool:
+Some articles and papers explaining the tech behind that runs in [MythX](https://mythx.io):
 
-- [Learning Inputs in Greybox Fuzzing](https://arxiv.org/pdf/1807.07875.pdf)
-- [Smashing Smart Contracts (HITB GSEC 2018)](https://conference.hitb.org/hitbsecconf2018ams/materials/D1T2%20-%20Bernhard%20Mueller%20-%20Smashing%20Ethereum%20Smart%20Contracts%20for%20Fun%20and%20ACTUAL%20Profit.pdf)
-- [Advances in Smart Contract Vulnerability Detection (DEFCON 27)](https://github.com/b-mueller/smashing-smart-contracts/blob/master/DEFCON27-EVM-Smart-Contracts-Mueller-Luca.pdf)
-- [The Tech Behind MythX](https://medium.com/consensys-diligence/the-tech-behind-mythx-smart-contract-security-analysis-32c849aedaef)
-- [Harvey Greybox Fuzzing Article Series](https://medium.com/consensys-diligence/finding-vulnerabilities-in-smart-contracts-175c56affe2)
+- [Finding Vulnerabilities in Smart Contracts (Harvey Basics)](https://medium.com/consensys-diligence/finding-vulnerabilities-in-smart-contracts-175c56affe2)
 - [Fuzzing Smart Contracts Using Input Prediction](https://medium.com/consensys-diligence/fuzzing-smart-contracts-using-input-prediction-29b30ba8055c)
 - [Fuzzing Smart Contracts Using Multiple Transactions](https://medium.com/consensys-diligence/fuzzing-smart-contracts-using-multiple-transactions-51471e4b3c69)
+- [Learning Inputs in Greybox Fuzzing (Arxiv)](https://arxiv.org/pdf/1807.07875.pdf)
+- [Targeted Greybox Fuzzing using Lookahead Analysis (Arxiv)](https://arxiv.org/abs/1905.07147)
 - [Intro to Symbolic Execution in Mythril](https://medium.com/@joran.honig/introduction-to-mythril-classic-and-symbolic-execution-ef59339f259b)
+- [Advances in Smart Contract Vulnerability Detection (DEFCON 27)](https://github.com/b-mueller/smashing-smart-contracts/blob/master/DEFCON27-EVM-Smart-Contracts-Mueller-Luca.pdf)
+- [Smashing Smart Contracts (HITB GSEC 2018)](https://conference.hitb.org/hitbsecconf2018ams/materials/D1T2%20-%20Bernhard%20Mueller%20-%20Smashing%20Ethereum%20Smart%20Contracts%20for%20Fun%20and%20ACTUAL%20Profit.pdf)
+- [The Tech Behind MythX (high-level)](https://medium.com/consensys-diligence/the-tech-behind-mythx-smart-contract-security-analysis-32c849aedaef)
 - [Practical Mutation Testing in Smart Contracts](https://www.researchgate.net/publication/335937116_Practical_Mutation_Testing_for_Smart_Contracts)
