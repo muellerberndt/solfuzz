@@ -1,6 +1,6 @@
 {
   "name": "solfuzz",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Assertion checker for Solidity smart contracts based on MythX",
   "main": "solfuzz.js",
   "repository": {
