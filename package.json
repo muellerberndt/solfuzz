@@ -23,7 +23,7 @@
     "@truffle/compile-solidity": "^4.3.2",
     "@truffle/contract": "^4.2.2",
     "@truffle/resolver": "^6.0.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^5.16.0",
     "minimist": "^1.2.5",
